@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  month: 2013-02-21 18:50:20
+  data1: 9.99
+  data2: 9.99
+
+two:
+  month: 2013-02-21 18:50:20
+  data1: 9.99
+  data2: 9.99

@@ -1,0 +1,36 @@
+<h1>Monthly Usages</h1>
+	<table id ="container">
+	<tr>
+		<th>ID</th>
+		<th>Elec</th>
+		<th>Gas</th>
+		<th>CHP Electricity</th>
+		<td>Biomass</td>
+		<td>Wind</td>
+		<td>Solar</td>
+	</tr>
+	<% @usages.each do |usage| %>
+	<tr>
+		<% usage.attributes.each do |k,v| %>
+			<% if v.nil? %>
+				<td>N/A</td>
+			<% else %>
+				<td><%= v %></td>
+			<% end %>
+		<% end %>
+		<td><%= link_to 'Delete', usage, confirm: 'Are you sure?', method: :delete %></td>
+		<td><%= link_to 'Show', usage %></td>
+	</tr>
+	<% end %>
+</table>
+
+<br />
+
+<h2>Import Usages</h2>
+<%= form_tag import_usages_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Import" %>
+<% end %>
+
+<%= link_to "Home", home_path %><br />
+<%= link_to "New", new_usage_path %><br />
