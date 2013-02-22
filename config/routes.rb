@@ -1,4 +1,14 @@
 Energy::Application.routes.draw do
+  resources :foos
+
+  get "home/index"
+
+  resources :tests
+  resources :usages do
+    resources :prices
+    collection {post :import}
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +58,8 @@ Energy::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'home#index'
+   match '/' => "home#index", :as => :home
 
   # See how all your routes lay out with "rake routes"
 
