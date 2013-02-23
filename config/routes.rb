@@ -1,13 +1,12 @@
 Energy::Application.routes.draw do
+
   resources :foos
-
-  get "home/index"
-
   resources :tests
   resources :usages do
     resources :prices
     collection {post :import}
   end
+  resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -63,7 +62,9 @@ Energy::Application.routes.draw do
    match '/prices_index' => "usages#prices_index", as: :prices_index
    match '/spend_index' => "usages#spend_index", as: :spend_index
    match '/usages/:id/edit_price_path' => "usages#edit_price", as: :edit_price
-  match '/usages/:id/edit_usage_path' => "usages#edit_usage", as: :edit_usage
+   match '/usages/:id/edit_usage_path' => "usages#edit_usage", as: :edit_usage
+   match '/projects' => "projects#index", as: :index
+   match '/projects/:id/edit_project_path' =>"projects#edit", as: :edit_project
 
   # See how all your routes lay out with "rake routes"
 

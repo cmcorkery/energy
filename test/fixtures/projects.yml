@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  system: MyString
+  date_submitted: MyString
+  submitted_by: MyString
+  difficulty: 1
+  roi: 1
+  risk: 1
+  priority_rating: 1
+  source: MyString
+  note: MyText
+  status: MyString
+  date_implemented: 2013-02-23
+  capital_investment: 1.5
+  annual_gas_savings: 1.5
+  annual_elec_savings: 1.5
+  annual_biomass_savings: 1.5
+
+two:
+  title: MyString
+  system: MyString
+  date_submitted: MyString
+  submitted_by: MyString
+  difficulty: 1
+  roi: 1
+  risk: 1
+  priority_rating: 1
+  source: MyString
+  note: MyText
+  status: MyString
+  date_implemented: 2013-02-23
+  capital_investment: 1.5
+  annual_gas_savings: 1.5
+  annual_elec_savings: 1.5
+  annual_biomass_savings: 1.5

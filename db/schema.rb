@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221185020) do
+ActiveRecord::Schema.define(:version => 20130223202141) do
 
   create_table "foos", :force => true do |t|
     t.datetime "month"
@@ -28,6 +28,27 @@ ActiveRecord::Schema.define(:version => 20130221185020) do
     t.integer  "usage_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "title"
+    t.string   "system"
+    t.date     "date_submitted"
+    t.string   "submitted_by"
+    t.integer  "difficulty"
+    t.integer  "roi"
+    t.integer  "risk"
+    t.integer  "priority_rating"
+    t.string   "source"
+    t.text     "note"
+    t.string   "status"
+    t.date     "date_implemented"
+    t.float    "capital_investment"
+    t.float    "annual_gas_savings"
+    t.float    "annual_elec_savings"
+    t.float    "annual_biomass_savings"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "tests", :force => true do |t|

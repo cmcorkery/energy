@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @project.title %></h2>
+<div id="container">
+	<% @project.attributes.each do |k,v| %>
+		<% if k != "created_at" && k != "updated_at" && k != "id" && k != "note" %>
+			<p>
+				<b><%= k %></b>
+				<%= v %>
+			</p>
+		<% end %>
+	<% end %>
+
+	<p>
+		<b>Addtional Notes</b>
+		<% @project.note %>
+	</p>
+</div>
+
+<%= link_to "Projects List", projects_path %><br />
