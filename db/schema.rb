@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221204351) do
+ActiveRecord::Schema.define(:version => 20130221185020) do
 
   create_table "foos", :force => true do |t|
     t.datetime "month"
@@ -22,15 +22,12 @@ ActiveRecord::Schema.define(:version => 20130221204351) do
   end
 
   create_table "prices", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "usage_id"
     t.decimal  "elec"
     t.decimal  "gas"
-    t.decimal  "chp_elec"
     t.decimal  "biomass"
-    t.decimal  "wind"
-    t.decimal  "solar"
+    t.integer  "usage_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tests", :force => true do |t|
@@ -41,15 +38,16 @@ ActiveRecord::Schema.define(:version => 20130221204351) do
   end
 
   create_table "usages", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "month"
+    t.date     "month"
     t.decimal  "elec"
     t.decimal  "gas"
-    t.decimal  "chp_elec"
     t.decimal  "biomass"
+    t.decimal  "chp_elec"
+    t.decimal  "chp_gas"
     t.decimal  "wind"
     t.decimal  "solar"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

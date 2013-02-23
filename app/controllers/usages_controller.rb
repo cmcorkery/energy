@@ -7,6 +7,22 @@ class UsagesController < ApplicationController
 		end
 	end
 
+	def prices_index
+		@usages = Usage.all
+		respond_to do |format|
+			format.html
+			format.json {render json: @usages}
+		end
+	end
+
+		def spend_index
+		@usages = Usage.all
+		respond_to do |format|
+			format.html
+			format.json {render json: @usages}
+		end
+	end
+
 	def destroy
 		@usage = Usage.find(params[:id])
 		@usage.destroy
@@ -41,14 +57,27 @@ class UsagesController < ApplicationController
     	end
     end
 
-    def show
-    	@usage = Usage.find(params[:id])
+     def update
+    @usage = Usage.find(params[:id])
 
-    	respond_to do |format|
-    		format.html
-    		format.json{render json: @usage}
-    	end
+    respond_to do |format|
+      if @usage.update_attributes(params[:usage])
+        format.html { redirect_to usages_path, notice: 'Usage was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @usage.errors, status: :unprocessable_entity }
+      end
     end
+  end
+
+    def edit_price
+    @usage = Usage.find(params[:id])
+  	end
+
+  	def edit_usage
+    @usage = Usage.find(params[:id])
+  	end
 
     def import
     	Usage.import(params[:file])

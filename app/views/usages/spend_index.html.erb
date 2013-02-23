@@ -1,0 +1,27 @@
+<h2>Energy Spend</h2>
+<table id ="container">
+	<tr>
+		<th>ID</th>
+		<th>Month</th>
+		<th>Elec</th>
+		<th>Gas</th>
+		<th>Biomass</th>
+		<th>CHP Gas</th>
+		<th>Total Gas</th>
+
+	</tr>
+	<% @usages.each do |usage| %>
+	<tr>
+		<td><%= usage.id %></td>
+		<td><%= usage.month.strftime("%b %Y") %></td>
+		<% s = ["elec_spend", "gas_spend", "biomass_spend", "chp_gas_spend", "total_gas_spend"] %>
+		<% s.each do |s| %>
+			<% if usage.send(s).nil? %>
+				<td>N/A</td>
+			<% else %>
+				<td><%= usage.send(s) %></td>
+			<% end %>
+		<% end %>
+	</tr>
+	<% end %>
+</table>

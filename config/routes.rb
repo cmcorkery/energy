@@ -60,6 +60,10 @@ Energy::Application.routes.draw do
   # just remember to delete public/index.html.
    root :to => 'home#index'
    match '/' => "home#index", :as => :home
+   match '/prices_index' => "usages#prices_index", as: :prices_index
+   match '/spend_index' => "usages#spend_index", as: :spend_index
+   match '/usages/:id/edit_price_path' => "usages#edit_price", as: :edit_price
+  match '/usages/:id/edit_usage_path' => "usages#edit_usage", as: :edit_usage
 
   # See how all your routes lay out with "rake routes"
 

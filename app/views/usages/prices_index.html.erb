@@ -1,0 +1,25 @@
+<h2>Energy Prices</h2>
+<p id="notice"><%= notice %></p>
+<table id ="container">
+	<tr>
+		<th>ID</th>
+		<th>Month</th>
+		<th>Elec</th>
+		<th>Gas</th>
+		<th>Biomass</th>
+	</tr>
+	<% @usages.each do |usage| %>
+	<tr>
+		<td><%= usage.price.usage_id %></td>
+		<td><%= usage.month.strftime("%b %Y") %></td>
+		<% usage.price.attributes.each do |k,v| %>
+			<% if v.nil? %>
+				<td>N/A</td>
+			<% elsif k != "created_at" && k != "updated_at" && k != "month" && k != "id" && k != "usage_id" %>
+				<td><%= v %></td>
+			<% end %>
+		<% end %>
+		<td><%= link_to "Edit", edit_price_path(usage) %> </td>
+	</tr>
+	<% end %>
+</table>

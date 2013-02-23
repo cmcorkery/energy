@@ -4,33 +4,46 @@ class Usage < ActiveRecord::Base
 	accepts_nested_attributes_for :price
 
 	def elec_spend
-		self.elec * price.elec
+		unless self.elec.nil?
+			self.elec * price.elec
+		end
 	end
 
+
 	def gas_spend
-		self.gas * price.gas
+		unless self.gas.nil?
+			self.gas * price.gas
+		end
+	end
+
+	def chp_gas_spend
+		unless self.chp_gas.nil?
+			self.chp_gas * price.gas
+		end
 	end
 
 	def biomass_spend
-		self.biomass * price.biomass
-	end
-
-	def wind_spend
-		self.wind * price.wind
-	end
-
-	def solar_spend
-		self.solar * price.solar
-	end
-
-	def chp_elec_spend
-		self.chp_elec * price.chp_elec
+		unless self.biomass.nil?
+			self.biomass * price.biomass
+		end
 	end
 
 	def self.import(file)
 		CSV.foreach(file.path, headers: true, skip_blanks:true) do |row|
 			u=Usage.create(:amount => row[0])
 			u.create_price(:amount => row[1])
+		end
+	end
+
+	def total_gas_spend
+		unless self.chp_gas.nil? && self.gas.nil?
+			if self.chp_gas.nil?
+				self.gas * price.gas
+			elsif self.gas.nil?
+				self.chp_gas * price.gas
+			else
+				(self.chp_gas + self.gas) * price.gas
+			end
 		end
 	end
 end

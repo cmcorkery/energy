@@ -1,0 +1,47 @@
+<%= form_for(@usage) do |f| %>
+  <% if @usage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usage.errors.count, "error") %> prohibited this test from being saved:</h2>
+
+      <ul>
+      <% @test.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Usage" %><br />
+    <%= f.text_field :elec %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Gas Usage" %><br />
+    <%= f.text_field :gas %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Biomass Usage" %><br />
+    <%= f.text_field :biomass %>
+  </div>
+
+  <div class="field">
+    <%= f.label "CHP Electrical Usage" %><br />
+    <%= f.text_field :chp_elec %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Wind Usage" %><br />
+    <%= f.text_field :wind %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Solar Usage" %><br />
+    <%= f.text_field :solar %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
