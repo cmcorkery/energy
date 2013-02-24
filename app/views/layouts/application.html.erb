@@ -7,14 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Energy Project Management</h1>
+<div class="tip", title="testing testing testing">
+	<h1>Energy Project Management</h1>
+</div>
 <%= yield %>
 
-<%= link_to "Home", home_path %><br />
+<%= link_to "Home", home_path, class: "tip", title: "testing testing testing" %><br />
 <%= link_to "Usage", usages_path %><br />
 <%= link_to "Prices", prices_index_path %><br />
 <%= link_to "Spend", spend_index_path %><br />
 <%= link_to "Projects", projects_path %><br />
-
 </body>
 </html>

@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+// uniTip - written by Nathan Ford for Unit Interactive
+//
+// uniTip is based on qTip:
+// qTip - CSS Tool Tips - by Craig Erskine
+// http://qrayg.com
