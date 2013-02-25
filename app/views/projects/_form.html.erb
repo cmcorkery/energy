@@ -12,25 +12,56 @@
   <% end %>
 
   <% @project.attributes.each do |k,_| %>
-    <% if k != "id" && k != "created_at" && k != "updated_at" && k != "date_submitted" && k != "date_implemented" && k != "note" %>
-      <div class="field">
-      <%= f.label k %><br />
-      <%= f.text_field k %>
-      </div>
-    <% elsif k == "date_implemented" || k =="date_submitted" %>
+    <% if k != "id" && k != "created_at" && k != "updated_at" && k != "date_submitted" && k != "date_implemented" && k != "note"  && k != "project_type" && k != "priority_rating" && k != "status" && k!="capital_investment" && k != "annual_elec_savings" && k != "annual_gas_savings" && k != "annual_biomass_savings" %>
+
       <div class="field">
         <%= f.label k %><br />
-        <%= f.date_select k %>
+        <%= f.text_field k %>
       </div>
+
+    <% elsif k == "date_implemented" %>
+
+      <div class="field, to_hide">
+        <%= f.label k %><br />
+        <%= f.date_select k,{},class:"to_disable" %>
+      </div>
+
+    <% elsif k == "date_submitted" %>
+
+      <div class="field">
+        <%= f.label k %><br />
+        <%= f.date_select k%>
+      </div>
+
+    <% elsif k == "note" %>
+
+      <div class="field">
+        <%= f.label "Additional Notes" %><br />
+        <%= f.text_area :note %>
+      </div>
+
+    <% elsif k == "project_type" %>
+
+      <div class="field">
+        <%= f.label "Type of Project" %><br />
+        <%= f.select :project_type, @project.acceptable_project_types %>
+      </div>
+
+      <% elsif k == "status" %>
+
+      <div class="field">
+        <%= f.label "Project Status" %><br />
+        <%= f.select :status, @project.acceptable_statuses %>
+      </div>
+
+      <% elsif k =="capital_investment" || k =="annual_gas_savings" || k =="annual_elec_savings" || k =="annual_biomass_savings" %>
+        <div class="field, to_hide">
+          <%= f.label k %><br />
+          <%= f.text_field k, class:"to_disable" %>
+        </div>
+
     <% end %>
   <% end %>
-
-<!-- Put the Notes Field at the bottom of the page! -->
-
-  <div class="field">
-    <%= f.label "Additional Notes" %><br />
-    <%= f.text_area :note %>
-  </div>
 
   <div class="actions">
     <%= f.submit %>

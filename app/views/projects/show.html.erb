@@ -7,13 +7,15 @@
 				<b><%= k %></b>
 				<%= v %>
 			</p>
+		<% elsif k == "note" %>
+			<p>
+				<b>Addtional Notes</b>
+				<% @project.note %>
+			</p>
 		<% end %>
 	<% end %>
 
-	<p>
-		<b>Addtional Notes</b>
-		<% @project.note %>
-	</p>
 </div>
 
 <%= link_to "Projects List", projects_path %><br />
+<%= link_to "Edit Project Info", edit_project_path(@project) %><br />

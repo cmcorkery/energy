@@ -20,4 +20,4 @@ Usage.create(month: "30/5/2012", gas:300, elec:600, biomass:200)
 Usage.all.each do |u|
 	u.create_price(gas:0.05, elec:0.1, biomass:0.04)
 end
-Project.create(title:"Install VSD", system:"HVAC", date_submitted: "1/3/2011", status: "Implemented", date_implemented:"31/12/2011", capital_investment: 500, annual_elec_savings:2400)
+Project.create(title:"Install VSD", project_type:"general", system:"HVAC", date_submitted: "1/3/2011", status: "Implemented", date_implemented:"31/12/2011", capital_investment: 500, annual_elec_savings:2400)
