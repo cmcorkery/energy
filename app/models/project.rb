@@ -14,16 +14,16 @@ class Project < ActiveRecord::Base
 		if self.roi != nil && self.difficulty != nil && self.risk != nil
 			self.priority_rating = self.roi + self.difficulty + self.risk
 		else
-			self.priority_rating = 0
+			self.priority_rating = nil
 		end
 	end
 
 	def check_status
 		unless self.status == "Completed"
-			self.capital_investment = 0
-			self.annual_gas_savings = 0
-			self.annual_elec_savings = 0
-			self.annual_biomass_savings = 0
+			self.capital_investment = nil
+			self.annual_gas_savings = nil
+			self.annual_elec_savings = nil
+			self.annual_biomass_savings = nil
 		end
 	end
 
